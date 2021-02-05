@@ -1,6 +1,11 @@
-LIBS = -L${OPENCV_LIB_DIR} -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs
-CFLAGS =  -fPIE -Wall -ggdb -Werror -Wextra -pedantic -std=c++11 -Wno-unused-parameter -I./lib/ -I${CPLUS_INCLUDE_PATH}
+OPENCVLIBS = -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs
+ifneq (${OPENCV_LIB_DIR}, "")
+LIBS = -L${OPENCV_LIB_DIR} ${OPENCVLIBS}
+else
+LIBS = ${OPENCVLIBS}
+endif
 
+CFLAGS =  -fPIE -Wall -ggdb -Werror -Wextra -pedantic -std=c++11 -Wno-unused-parameter -I./lib/
 
 com_targets := $(addprefix bin/, $(basename $(notdir $(wildcard src/com/*.cpp))))
 com_obj := $(addprefix obj/com/,$(notdir $(addsuffix .o, $(com_targets))))
@@ -17,7 +22,7 @@ bin/test: obj/com/test.o obj/common.o
 
 
 
-TP1: bin/bilateralFilter bin/threshold bin/quantize bin/normalize bin/equalize bin/thresholdOtsu
+TP1: bin/inverse bin/threshold bin/quantize bin/normalize bin/equalize bin/thresholdOtsu
 
 bin/inverse: obj/com/inverse.o obj/common.o obj/tpHistogram.o 
 	g++ $(CFLAGS) -o $@ $^ $(LIBS)

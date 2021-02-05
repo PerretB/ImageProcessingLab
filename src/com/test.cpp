@@ -69,6 +69,7 @@ bool compIm(Mat im1, Mat im2, string msg, bool show)
         normalize(tmp,op,0,255,NORM_MINMAX);
         showimage(op, msg.c_str());
         waitKey(0);
+        destroyAllWindows();
     }
     return !flag;
 }
@@ -133,6 +134,7 @@ bool compImBijection(Mat im1, Mat im2, string msg, bool show)
         {
             showimage(cv::max(d1,d2), msg.c_str());
             waitKey(0);
+            destroyAllWindows();
         }
         return false;
     } 
