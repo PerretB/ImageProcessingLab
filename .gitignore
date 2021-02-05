@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+miniconda
+.vscode
+
+bin/*
+!bin/*.png
+!bin/*.jpg
+!bin/*.tiff
+bin/out.png
+bin/out.jpg
