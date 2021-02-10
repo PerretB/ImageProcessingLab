@@ -18,11 +18,12 @@ then
          exit
       fi
 
-      unameOut="$(uname -s)"
+      unameOut=`uname -s`
       case "${unameOut}" in
          Linux*)     MINICONDA_LINUX="Linux-x86_64";;
          Darwin*)    MINICONDA_LINUX="MacOSX-x86_64";;
-         *)          echo "UNKNOWN system" && exit(1);;
+         *)          echo "UNKNOWN system"
+                     exit 1;;
       esac
 
       MINICONDA_VERSION="latest"
