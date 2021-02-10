@@ -1,3 +1,5 @@
+[![Build Status](https://perretb.visualstudio.com/AzurePipelines/_apis/build/status/PerretB.ImageProcessingLab?branchName=refs%2Fpull%2F1%2Fmerge)](https://perretb.visualstudio.com/AzurePipelines/_build/latest?definitionId=1&branchName=refs%2Fpull%2F1%2Fmerge)
+
 # Image Processing Lab
 
 Lab exercises for the  [course on image processing](https://perso.esiee.fr/~perretb/I5FM/TAI/) (in French).
