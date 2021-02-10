@@ -1,0 +1,36 @@
+# C/C++ with GCC
+# Build your C/C++ project with GCC using make.
+# Add steps that publish test results, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/c-cpp/gcc
+
+trigger:
+- main
+
+jobs:
+  - job: 'Linux_OSX'
+    strategy:
+      matrix:
+        macOS_10_15:
+          compiler: clang++
+          image_name: 'macOS-10.15'
+        linux_gcc_7:
+          compiler: 'g++-7'
+          image_name: 'ubuntu-16.04'
+    pool:
+      vmImage: $(image_name)
+    variables:
+        CXX: $(compiler)
+    timeoutInMinutes: 360
+    steps:
+      - bash: |
+          echo "##vso[task.prependpath]$CONDA/bin"
+          sudo chown -R $USER $CONDA
+        displayName: Add conda to PATH
+      - bash: |
+          source ./init.sh
+          make -j2
+          cd bin && ./inverse
+        displayName: Init and build
+     
+
+

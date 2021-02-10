@@ -21,9 +21,9 @@ There are 5 files to complete, each one corresponds to a course chapter:
 
 This lab requires a working *nix environment with a c++ 11 compiler and valgrind.
 
-The library *OpenCV4* is required to compile this project. To install a local version of this library just execute the script ``./init.sh``. This script will automatically download the library and set up the environment variable required by the makefile.  
+The library *OpenCV4* is required to compile this project. To install a local version of this library just execute the script ``source ./init.sh``. This script will automatically download the library and set up the environment variable required by the makefile.  
 
-**Important:** If you install **OpenCV** with the script ``./init.sh``, you have to run the script in every terminal used to work on this project!
+**Important:** If you install **OpenCV** with the script ``source ./init.sh``, you have to run the script in every terminal used to work on this project!
 
 ### Compilation
 
