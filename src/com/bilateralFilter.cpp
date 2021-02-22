@@ -10,7 +10,7 @@ int main( int argc, char** argv )
 {
     CLI::App app{"Convolution"};
 
-    string inputImage = "camera_bruit_gaussien";
+    string inputImage = "camera_bruit_gaussien.png";
     app.add_option("-I,--inputImage", inputImage, "Input image filename");
 
     string outputImage = "out.png";

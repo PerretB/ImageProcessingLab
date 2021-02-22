@@ -26,3 +26,7 @@ void imwriteHelper(cv::Mat image, std::string filename);
 */
 void showimage(cv::Mat image, const char * name=NULL);
 
+/**
+ * Remaps a label image between 0 and the number of labels - 1
+ */
+cv::Mat remap_labels(cv::Mat label_image);

@@ -50,6 +50,8 @@ bool compIm(Mat im1, Mat im2, string msg, bool show)
 
     im1.convertTo(im1, CV_64F);
     im2.convertTo(im2, CV_64F);
+    im1 = im1 / 255.0;
+    im2 = im2 / 255.0;
     Mat tmp0 = im1 - im2;
     Mat tmp;
     pow(tmp0,2.0,tmp);
