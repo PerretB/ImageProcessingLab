@@ -21,7 +21,7 @@ int main( int argc, char** argv )
 
     CLI11_PARSE(app, argc, argv);
 
-    Mat image = imreadHelper(inputImage);
+    Mat image = imreadHelper(inputImage, false);
     Mat res_image = equalize(image);
     imwriteHelper(res_image, outputImage);
 

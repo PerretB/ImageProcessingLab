@@ -73,7 +73,7 @@ float gaussian(float x, float sigma2)
     and a intensity smoothing of scale sigma_r.
 
 */
-cv::Mat bilateralFilter(cv::Mat image, cv::Mat kernel, double sigma_r)
+cv::Mat bilateralFilter(cv::Mat image, cv::Mat kernel, float sigma_r)
 {
     Mat res = image.clone();
     /********************************************

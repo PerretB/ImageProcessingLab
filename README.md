@@ -52,7 +52,7 @@ The usage of the command line tools is obtained with the argument ``--help``, fo
 
 Each command line tool is associated to a unit test that can be executed with the tool ``bin/test``. For example the tool ``inverse`` can be tested with the command ``./test -P inverse``. If the test detects an error, you can ask to see an error map with the argument ``-S``: this will display an image showing where the errors are located: the brighter a pixel is, the further it is from the expected result. 
 
-**Important:** The unit tests work by comparing the result of your functions to results produced with reference implementations. Implementation details, especially when working with floatting point values can lead to small diprecancies between similar results. While the test program tries to deal with this issue it can still detect false positives, i.e., say that a function is wrong while it is indeed right. In case of doubt call a professor to check your work.
+**Important:** The unit tests work by comparing the result of your functions to results produced with reference implementations. Implementation details, especially when working with floatting point values can lead to small disprecancies between similar results. While the test program tries to deal with this issue it can still detect false positives, i.e., say that a function is wrong while it is indeed right. In case of doubt call a professor to check your work.
 
 As with any unit test, it is also possible that the unit tests suffer from false negatives, i.e., say that a program is correct while it is not.
 

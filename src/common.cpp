@@ -1,6 +1,7 @@
 #include "common.h"
 #include <exception>
 #include <iostream>
+#include <map>
 #include "stdio.h"
 
 using namespace cv;
@@ -81,3 +82,25 @@ void showimage(cv::Mat image, const char * name)
     cv::imshow( tn, image );
 }
 
+
+cv::Mat remap_labels(cv::Mat label_image)
+{
+    map<int, int> label_map;
+    label_map[0] = 0;
+
+    Mat res = Mat::zeros(label_image.rows, label_image.cols, CV_32SC1);
+    int current_label = 1;
+
+    for(int y = 0; y < label_image.rows; ++y){
+        for(int x = 0; x < label_image.cols; ++x){
+            int l = label_image.at<int>(y, x);
+            if(label_map.count(l) == 0){
+                label_map[l] = current_label;
+                current_label++;
+            }
+            res.at<int>(y, x) = label_map[l];
+        }
+    }
+
+    return res;
+}

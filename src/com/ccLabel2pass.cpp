@@ -23,9 +23,21 @@ int main( int argc, char** argv )
 
     Mat image = imreadHelper(inputImage);
     Mat res_image = ccTwoPassLabel(image);
-    Mat tmp;
-    res_image.convertTo(tmp, CV_32FC1);
-    cv::normalize(tmp, res_image, 0.0, 1.0, NORM_MINMAX, CV_32FC1);
+
+    Mat tmp = remap_labels(res_image);
+    double min, max;
+    cv::minMaxLoc(tmp, &min, &max);
+
+    if(min < 0){
+        cout << "Warning: a pixel has a label value lower than 0!";
+    }
+    if(max > 255){
+        cout << "Warning: a pixel has a label value greater than 255!";
+    }
+
+    Mat tmp2;
+    res_image.convertTo(tmp2, CV_32FC1);
+    cv::normalize(tmp2, res_image, 0.0, 1.0, NORM_MINMAX, CV_32FC1);
     imwriteHelper(res_image, outputImage);
 
     // maybe show result
