@@ -34,24 +34,6 @@ Mat median(Mat image, int size)
 
 
 /**
-    Compute the erosion of the input float image by the given structuring element.
-    Pixel outside the image are supposed to have value 1.
-*/
-Mat erode(Mat image, Mat structuringElement)
-{
-    Mat res = image.clone();
-    /********************************************
-                YOUR CODE HERE
-    *********************************************/
-    
-    /********************************************
-                END OF YOUR CODE
-    *********************************************/
-    return res;
-}
-
-
-/**
     Compute the dilation of the input float image by the given structuring element.
      Pixel outside the image are supposed to have value 0
 */
@@ -60,9 +42,27 @@ Mat dilate(Mat image, Mat structuringElement)
     Mat res = Mat::zeros(1,1,CV_32FC1);
     /********************************************
                 YOUR CODE HERE
-        hint : 1 line of code is enough
     *********************************************/
      
+    /********************************************
+                END OF YOUR CODE
+    *********************************************/
+    return res;
+}
+
+
+/**
+    Compute the erosion of the input float image by the given structuring element.
+    Pixel outside the image are supposed to have value 1.
+*/
+Mat erode(Mat image, Mat structuringElement)
+{
+    Mat res = image.clone();
+    /********************************************
+                YOUR CODE HERE
+        hint : 1 line of code is enough
+    *********************************************/
+    
     /********************************************
                 END OF YOUR CODE
     *********************************************/
