@@ -14,7 +14,7 @@ jobs:
           compiler: clang++
           image_name: 'macOS-10.15'
         linux_gcc_7:
-          compiler: 'g++-7'
+          compiler: 'g++-9'
           image_name: 'ubuntu-16.04'
     pool:
       vmImage: $(image_name)
