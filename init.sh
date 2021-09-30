@@ -40,7 +40,7 @@ then
 else
    # "configure" conda
    conda activate
-   conda_path=`which conda`
+   conda_path=`which python`
    echo "Conda found: $conda_path"
    conda_bin_dir=`dirname $conda_path`
    CONDA_ROOT_PATH=`dirname $conda_bin_dir`   
@@ -56,12 +56,5 @@ then
 fi
 
 export OPENCV_LIB_DIR=$CONDA_ROOT_PATH/lib
-
-if [[ -n "$MACOS" ]]
-then
-	export DYLD_FALLBACK_LIBRARY_PATH=$OPENCV_LIB_DIR:$DYLD_FALLBACK_LIBRARY_PATH
-else
-	export LD_LIBRARY_PATH=$OPENCV_LIB_DIR:$LD_LIBRARY_PATH
-fi
 
 export CPLUS_INCLUDE_PATH=$CONDA_ROOT_PATH/include/opencv4:$CPLUS_INCLUDE_PATH
