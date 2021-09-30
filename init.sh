@@ -21,7 +21,8 @@ then
       unameOut=`uname -s`
       case "${unameOut}" in
          Linux*)     MINICONDA_LINUX="Linux-x86_64";;
-         Darwin*)    MINICONDA_LINUX="MacOSX-x86_64";;
+         Darwin*)    MACOS=1
+				     MINICONDA_LINUX="MacOSX-x86_64";;
          *)          echo "UNKNOWN system"
                      exit 1;;
       esac
@@ -38,6 +39,7 @@ then
    
 else
    # "configure" conda
+   conda activate
    conda_path=`which conda`
    echo "Conda found: $conda_path"
    conda_bin_dir=`dirname $conda_path`
@@ -49,9 +51,17 @@ opencv_package=`conda list | grep libopencv`
 if [[ -z "$opencv_package" ]]
 then
    conda config --set always_yes yes --set changeps1 no
-   conda install -c conda-forge opencv
+   conda install mamba -n base -c conda-forge
+   mamba install -c conda-forge opencv
 fi
 
 export OPENCV_LIB_DIR=$CONDA_ROOT_PATH/lib
-export LD_LIBRARY_PATH=$OPENCV_LIB_DIR:$LD_LIBRARY_PATH
+
+if [[ -n "$MACOS" ]]
+then
+	export DYLD_FALLBACK_LIBRARY_PATH=$OPENCV_LIB_DIR:$DYLD_FALLBACK_LIBRARY_PATH
+else
+	export LD_LIBRARY_PATH=$OPENCV_LIB_DIR:$LD_LIBRARY_PATH
+fi
+
 export CPLUS_INCLUDE_PATH=$CONDA_ROOT_PATH/include/opencv4:$CPLUS_INCLUDE_PATH
