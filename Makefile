@@ -1,6 +1,6 @@
 OPENCVLIBS = -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs
 ifneq (${OPENCV_LIB_DIR}, "")
-LIBS = -L${OPENCV_LIB_DIR} ${OPENCVLIBS}
+LIBS = -L${OPENCV_LIB_DIR} ${OPENCVLIBS} -Wl,-rpath ${OPENCV_LIB_DIR}
 else
 LIBS = ${OPENCVLIBS}
 endif
