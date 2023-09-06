@@ -46,10 +46,20 @@ Mat threshold(Mat image, float lowT, float highT)
 
 /**
     Quantize the input float image in [0,1] in numberOfLevels different gray levels.
+    
     eg. for numberOfLevels = 3 the result should be for all pixel p: res(p) =
         | 0 if image(p) < 1/3
         | 1/2 if 1/3 <= image(p) < 2/3
         | 1 otherwise
+
+        for numberOfLevels = 4 the result should be for all pixel p: res(p) =
+        | 0 if image(p) < 1/4
+        | 1/3 if 1/4 <= image(p) < 1/2
+        | 2/3 if 1/2 <= image(p) < 3/4
+        | 1 otherwise
+
+        and so on for other values of numberOfLevels.
+
 */
 Mat quantize(Mat image, int numberOfLevels)
 {
@@ -87,6 +97,9 @@ Mat normalize(Mat image, float minValue, float maxValue)
 
 /**
     Equalize image histogram with unsigned char values ([0;255])
+
+    Warning: this time, image values are unsigned chars but calculation will be done in float or double format.
+    The final result must be rounded toward the nearest integer 
 */
 Mat equalize(Mat image)
 {
