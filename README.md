@@ -1,4 +1,4 @@
-[![Build Status](https://perretb.visualstudio.com/AzurePipelines/_apis/build/status/PerretB.ImageProcessingLab?branchName=refs%2Fpull%2F1%2Fmerge)](https://perretb.visualstudio.com/AzurePipelines/_build/latest?definitionId=1&branchName=refs%2Fpull%2F1%2Fmerge)
+[![Build Status](https://perretb.visualstudio.com/AzurePipelines/_apis/build/status%2FPerretB.ImageProcessingLab?branchName=main)](https://perretb.visualstudio.com/AzurePipelines/_build/latest?definitionId=1&branchName=main)
 
 # Image Processing Lab
 
