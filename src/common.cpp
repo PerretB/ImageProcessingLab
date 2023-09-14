@@ -71,7 +71,7 @@ void showimage(cv::Mat image, const char * name)
     if (name==NULL)
     {
          char op[30];
-         sprintf(op, "%d", count++);
+         snprintf(op, 30, "%d", count++);
          tn = op;
     }else
     {
