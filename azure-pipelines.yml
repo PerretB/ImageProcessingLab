@@ -10,12 +10,12 @@ jobs:
   - job: 'Linux_OSX'
     strategy:
       matrix:
-        macOS_10_15:
+        macOS:
           compiler: clang++
-          image_name: 'macOS-10.15'
-        linux_gcc_7:
-          compiler: 'g++-9'
-          image_name: 'ubuntu-16.04'
+          image_name: 'macOS-latest'
+        linux:
+          compiler: 'g++-11'
+          image_name: 'ubuntu-latest'
     pool:
       vmImage: $(image_name)
     variables:

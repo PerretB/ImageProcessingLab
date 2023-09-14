@@ -51,8 +51,7 @@ opencv_package=`conda list | grep libopencv`
 if [[ -z "$opencv_package" ]]
 then
    conda config --set always_yes yes --set changeps1 no
-   conda install mamba -n base -c conda-forge
-   mamba install -c conda-forge opencv
+   conda install -c conda-forge opencv
 fi
 
 export OPENCV_LIB_DIR=$CONDA_ROOT_PATH/lib
