@@ -22,7 +22,11 @@ then
       case "${unameOut}" in
          Linux*)     MINICONDA_LINUX="Linux-x86_64";;
          Darwin*)    MACOS=1
-				     MINICONDA_LINUX="MacOSX-x86_64";;
+	 	     if [[ $(uname -m) == 'arm64' ]]; then
+                         MINICONDA_LINUX="MacOSX-arm64"
+		     else
+       			 MINICONDA_LINUX="MacOSX-x86_64"
+                     fi;;
          *)          echo "UNKNOWN system"
                      exit 1;;
       esac
