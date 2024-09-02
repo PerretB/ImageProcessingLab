@@ -308,8 +308,8 @@ int main( int argc, char** argv )
     bool record = false;
     app.add_flag("--recordmode", record, "Record new test results");
 
-    bool fastmode = false;
-    app.add_flag("--fast", fastmode, "Disable memory corruption detection");
+    bool valgrind = false;
+    app.add_flag("--valgrind", valgrind, Activate valgrind memory check");
 
     bool show = false;
     app.add_flag("-S,--show", show, "Display input and output images in new windows");
@@ -328,7 +328,7 @@ int main( int argc, char** argv )
                 cerr << "Cannot find program " << prog << endl;
                 exit(1);
             }
-            process(prog, p[prog],record, show, !fastmode);
+            process(prog, p[prog],record, show, valgrind);
         }else{
             cerr << "Unknown program " << prog << endl;
             exit(1);
@@ -337,7 +337,7 @@ int main( int argc, char** argv )
         for(auto iter = p.begin(); iter != p.end(); ++iter)
         {
             string k = iter->first;
-            process(k, iter->second, record, show, !fastmode);
+            process(k, iter->second, record, show, valgrind);
         }
 
     }
