@@ -309,7 +309,7 @@ int main( int argc, char** argv )
     app.add_flag("--recordmode", record, "Record new test results");
 
     bool valgrind = false;
-    app.add_flag("--valgrind", valgrind, Activate valgrind memory check");
+    app.add_flag("--valgrind", valgrind, "Activate valgrind memory check");
 
     bool show = false;
     app.add_flag("-S,--show", show, "Display input and output images in new windows");
