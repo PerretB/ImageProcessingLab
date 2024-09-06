@@ -116,7 +116,7 @@ Mat equalize(Mat image)
 }
 
 /**
-    Compute a binarization of the input float image using an automatic Otsu threshold.
+    Compute a binarization of the input image using an automatic Otsu threshold.
     Input image is of type unsigned char ([0;255])
 */
 Mat thresholdOtsu(Mat image)
